@@ -1,0 +1,66 @@
+{
+    "name": "Usuario",
+    "fields": [
+        {
+            "fieldName": "segundoNombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "segundoApellido",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numDocumento",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "celular",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "genero",
+            "fieldType": "Genero",
+            "fieldValues": "HOMBRE,MUJER"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "usuario",
+            "relationshipName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elementoLista",
+            "otherEntityRelationshipName": "usuario",
+            "relationshipValidateRules": "required",
+            "relationshipName": "cuidad",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200225114921",
+    "entityTableName": "usuario",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

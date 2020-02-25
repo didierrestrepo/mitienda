@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="producto">
+            <h2><span jhiTranslate="mitiendaApp.producto.detail.title">Producto</span> {{producto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.producto.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{producto.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.producto.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{producto.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.producto.precioCompra">Precio Compra</span></dt>
+                <dd>
+                    <span>{{producto.precioCompra}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.producto.precioVenta">Precio Venta</span></dt>
+                <dd>
+                    <span>{{producto.precioVenta}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.producto.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'mitiendaApp.EstadoProducto.' + producto.estado}}">{{producto.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.producto.productCategoria">Product Categoria</span></dt>
+                <dd>
+                    <div *ngIf="producto.productCategoriaId">
+                        <a [routerLink]="['/producto-categoria', producto.productCategoriaId, 'view']">{{producto.productCategoriaId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/producto', producto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

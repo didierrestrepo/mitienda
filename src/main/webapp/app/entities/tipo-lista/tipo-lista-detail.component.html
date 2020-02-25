@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoLista">
+            <h2><span jhiTranslate="mitiendaApp.tipoLista.detail.title">Tipo Lista</span> {{tipoLista.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.tipoLista.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoLista.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.tipoLista.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoLista.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.tipoLista.padre">Padre</span></dt>
+                <dd>
+                    <div *ngIf="tipoLista.padreId">
+                        <a [routerLink]="['/tipo-lista', tipoLista.padreId, 'view']">{{tipoLista.padreNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-lista', tipoLista.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

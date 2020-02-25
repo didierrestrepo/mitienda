@@ -1,0 +1,55 @@
+{
+    "name": "ElementoLista",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "codigo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5
+        },
+        {
+            "fieldName": "propiedades",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoLista",
+            "otherEntityRelationshipName": "elementoLista",
+            "relationshipValidateRules": "required",
+            "relationshipName": "tipoLista",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elementoLista",
+            "otherEntityRelationshipName": "elementoLista",
+            "relationshipName": "padre",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200225114923",
+    "entityTableName": "elemento_lista",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

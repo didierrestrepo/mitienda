@@ -1,0 +1,26 @@
+{
+  "mitiendaApp": {
+    "elementoLista": {
+      "home": {
+        "title": "Elemento Listas",
+        "createLabel": "Crear nuevo Elemento Lista",
+        "createOrEditLabel": "Crear o editar Elemento Lista",
+        "notFound": "Ningún Elemento Listas encontrado"
+      },
+      "created": "Un nuevo Elemento Lista ha sido creado con el identificador {{ param }}",
+      "updated": "Un Elemento Lista ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Elemento Lista ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Elemento Lista {{ id }}?"
+      },
+      "detail": {
+        "title": "Elemento Lista"
+      },
+      "nombre": "Nombre",
+      "codigo": "Codigo",
+      "propiedades": "Propiedades",
+      "tipoLista": "Tipo Lista",
+      "padre": "Padre"
+    }
+  }
+}

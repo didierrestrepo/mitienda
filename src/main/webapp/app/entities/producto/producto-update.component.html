@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-producto-heading" jhiTranslate="mitiendaApp.producto.home.createOrEditLabel">Create or edit a Producto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.precioCompra" for="field_precioCompra">Precio Compra</label>
+                    <input type="number" class="form-control" name="precioCompra" id="field_precioCompra"
+                           formControlName="precioCompra"/>
+                    <div *ngIf="editForm.get('precioCompra')!.invalid && (editForm.get('precioCompra')!.dirty || editForm.get('precioCompra')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('precioCompra')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('precioCompra')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('precioCompra')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.precioVenta" for="field_precioVenta">Precio Venta</label>
+                    <input type="number" class="form-control" name="precioVenta" id="field_precioVenta"
+                           formControlName="precioVenta"/>
+                    <div *ngIf="editForm.get('precioVenta')!.invalid && (editForm.get('precioVenta')!.dirty || editForm.get('precioVenta')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('precioVenta')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('precioVenta')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('precioVenta')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="ACTIVO">{{'mitiendaApp.EstadoProducto.ACTIVO' | translate}}</option>
+                        <option value="INACTIVO">{{'mitiendaApp.EstadoProducto.INACTIVO' | translate}}</option>
+                        <option value="AGOTADO">{{'mitiendaApp.EstadoProducto.AGOTADO' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.producto.productCategoria" for="field_productCategoria">Product Categoria</label>
+                    <select class="form-control" id="field_productCategoria" name="productCategoria" formControlName="productCategoriaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productoCategoriaOption.id" *ngFor="let productoCategoriaOption of productocategorias; trackBy: trackById">{{productoCategoriaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

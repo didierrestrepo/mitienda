@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entidades",
+        "producto": "Producto",
+        "stock": "Stock",
+        "productoDetalle": "Producto Detalle",
+        "sucursal": "Sucursal",
+        "usuario": "Usuario",
+        "tipoLista": "Tipo Lista",
+        "elementoLista": "Elemento Lista",
+        "productoCategoria": "Producto Categoria",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

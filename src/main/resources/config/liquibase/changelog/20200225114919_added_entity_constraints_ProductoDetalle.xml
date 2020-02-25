@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ProductoDetalle.
+    -->
+    <changeSet id="20200225114919-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="talla_id"
+                                 baseTableName="producto_detalle"
+                                 constraintName="fk_producto_detalle_talla_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elemento_lista"/>
+
+        <addForeignKeyConstraint baseColumnNames="color_id"
+                                 baseTableName="producto_detalle"
+                                 constraintName="fk_producto_detalle_color_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elemento_lista"/>
+
+        <addForeignKeyConstraint baseColumnNames="producto_id"
+                                 baseTableName="producto_detalle"
+                                 constraintName="fk_producto_detalle_producto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="producto"/>
+
+    </changeSet>
+</databaseChangeLog>

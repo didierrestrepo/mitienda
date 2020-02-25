@@ -1,0 +1,10 @@
+{
+  "mitiendaApp": {
+    "EstadoProducto": {
+      "null": "",
+      "ACTIVO": "ACTIVO",
+      "INACTIVO": "INACTIVO",
+      "AGOTADO": "AGOTADO"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+    "name": "Producto",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precioCompra",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "precioVenta",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "EstadoProducto",
+            "fieldValues": "ACTIVO,INACTIVO,AGOTADO"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "productoDetalle",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "productoDetalle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "productoCategoria",
+            "otherEntityRelationshipName": "producto",
+            "relationshipName": "productCategoria",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200225114917",
+    "javadoc": "Product sold by the Online store",
+    "entityTableName": "producto",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

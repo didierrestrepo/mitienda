@@ -1,0 +1,25 @@
+{
+  "mitiendaApp": {
+    "productoDetalle": {
+      "home": {
+        "title": "Producto Detalles",
+        "createLabel": "Crear nuevo Producto Detalle",
+        "createOrEditLabel": "Crear o editar Producto Detalle",
+        "notFound": "Ningún Producto Detalles encontrado"
+      },
+      "created": "Un nuevo Producto Detalle ha sido creado con el identificador {{ param }}",
+      "updated": "Un Producto Detalle ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Producto Detalle ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Producto Detalle {{ id }}?"
+      },
+      "detail": {
+        "title": "Producto Detalle"
+      },
+      "codigo": "Codigo",
+      "talla": "Talla",
+      "color": "Color",
+      "producto": "Producto"
+    }
+  }
+}

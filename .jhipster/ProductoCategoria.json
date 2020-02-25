@@ -1,0 +1,34 @@
+{
+    "name": "ProductoCategoria",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "producto",
+            "otherEntityRelationshipName": "productCategoria",
+            "relationshipName": "producto"
+        }
+    ],
+    "changelogDate": "20200225114924",
+    "entityTableName": "producto_categoria",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

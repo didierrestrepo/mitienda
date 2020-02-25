@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-elemento-lista-heading" jhiTranslate="mitiendaApp.elementoLista.home.createOrEditLabel">Create or edit a Elemento Lista</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.elementoLista.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.elementoLista.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                    <div *ngIf="editForm.get('codigo')!.invalid && (editForm.get('codigo')!.dirty || editForm.get('codigo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codigo')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codigo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 5 }">
+                        This field cannot be longer than 5 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.elementoLista.propiedades" for="field_propiedades">Propiedades</label>
+                    <div>
+                        <div *ngIf="editForm.get('propiedades')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('propiedadesContentType')!.value, editForm.get('propiedades')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('propiedadesContentType')!.value}}, {{byteSize(editForm.get('propiedades')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({propiedades: null});editForm.patchValue({propiedadesContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_propiedades" (change)="setFileData($event, 'propiedades', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="propiedades" id="field_propiedades"
+                           formControlName="propiedades"/>
+                    <input type="hidden" class="form-control" name="propiedadesContentType" id="field_propiedadesContentType"
+                           formControlName="propiedadesContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.elementoLista.tipoLista" for="field_tipoLista">Tipo Lista</label>
+                    <select class="form-control" id="field_tipoLista" name="tipoLista" formControlName="tipoListaId">
+                        <option *ngIf="!editForm.get('tipoListaId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="tipoListaOption.id" *ngFor="let tipoListaOption of tipolistas; trackBy: trackById">{{tipoListaOption.nombre}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('tipoListaId')!.invalid && (editForm.get('tipoListaId')!.dirty || editForm.get('tipoListaId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('tipoListaId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mitiendaApp.elementoLista.padre" for="field_padre">Padre</label>
+                    <select class="form-control" id="field_padre" name="padre" formControlName="padreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="elementoListaOption.id" *ngFor="let elementoListaOption of elementolistas; trackBy: trackById">{{elementoListaOption.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

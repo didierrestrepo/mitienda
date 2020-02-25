@@ -1,0 +1,24 @@
+{
+  "mitiendaApp": {
+    "tipoLista": {
+      "home": {
+        "title": "Tipo Listas",
+        "createLabel": "Crear nuevo Tipo Lista",
+        "createOrEditLabel": "Crear o editar Tipo Lista",
+        "notFound": "Ningún Tipo Listas encontrado"
+      },
+      "created": "Un nuevo Tipo Lista ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Lista ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Lista ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Lista {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Lista"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "padre": "Padre"
+    }
+  }
+}

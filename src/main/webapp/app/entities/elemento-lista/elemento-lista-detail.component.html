@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="elementoLista">
+            <h2><span jhiTranslate="mitiendaApp.elementoLista.detail.title">Elemento Lista</span> {{elementoLista.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mitiendaApp.elementoLista.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{elementoLista.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.elementoLista.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{elementoLista.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.elementoLista.propiedades">Propiedades</span></dt>
+                <dd>
+                    <div *ngIf="elementoLista.propiedades">
+                        <a (click)="openFile(elementoLista.propiedadesContentType!, elementoLista.propiedades)" jhiTranslate="entity.action.open">open</a>
+                        {{elementoLista.propiedadesContentType}}, {{byteSize(elementoLista.propiedades)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.elementoLista.tipoLista">Tipo Lista</span></dt>
+                <dd>
+                    <div *ngIf="elementoLista.tipoListaId">
+                        <a [routerLink]="['/tipo-lista', elementoLista.tipoListaId, 'view']">{{elementoLista.tipoListaNombre}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mitiendaApp.elementoLista.padre">Padre</span></dt>
+                <dd>
+                    <div *ngIf="elementoLista.padreId">
+                        <a [routerLink]="['/elemento-lista', elementoLista.padreId, 'view']">{{elementoLista.padreNombre}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/elemento-lista', elementoLista.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

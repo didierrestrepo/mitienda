@@ -1,0 +1,44 @@
+{
+    "name": "ProductoDetalle",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elementoLista",
+            "otherEntityRelationshipName": "productoDetalle",
+            "relationshipValidateRules": "required",
+            "relationshipName": "talla",
+            "otherEntityField": "valor"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elementoLista",
+            "otherEntityRelationshipName": "productoDetalle",
+            "relationshipValidateRules": "required",
+            "relationshipName": "color",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "producto",
+            "otherEntityRelationshipName": "productoDetalle",
+            "relationshipName": "producto",
+            "otherEntityField": "nombre"
+        }
+    ],
+    "changelogDate": "20200225114919",
+    "entityTableName": "producto_detalle",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

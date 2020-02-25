@@ -1,0 +1,9 @@
+{
+  "mitiendaApp": {
+    "Genero": {
+      "null": "",
+      "HOMBRE": "HOMBRE",
+      "MUJER": "MUJER"
+    }
+  }
+}
