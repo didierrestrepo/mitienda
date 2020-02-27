@@ -1,60 +1,60 @@
 /** Product sold by the Online store */
-entity Producto 
+entity Producto
 {
     nombre String required
     descripcion String
     precioCompra BigDecimal required min(0)
     precioVenta BigDecimal required min(0)
-    estado EstadoProducto,
+    estado EstadoProducto
    // image ImageBlob
 }
 
 entity Stock
 {
-  Cantidad Long required min(0),
-  
+  cantidad Long required min(0)
+
 }
 
 entity ProductoDetalle{
-  
+
    codigo String
-  
+
 }
 
 enum EstadoProducto{
- ACTIVO, INACTIVO, AGOTADO 
+ ACTIVO, INACTIVO, AGOTADO
 
 }
 
 entity Sucursal{
-  nombre String required, 
-  direccion String required,
-  
+  nombre String required
+  direccion String required
+
 
 }
 entity Usuario{
 	segundoNombre String
-    segundoApellido String,
-    numDocumento String required maxlength(15),
-    celular String required,
-    direccion String,
-    genero Genero,
+    segundoApellido String
+    numDocumento String required maxlength(15)
+    celular String required
+    direccion String
+    genero Genero
 
 }
 
 entity TipoLista {
-	nombre String required,
+	nombre String required
     descripcion String maxlength(500)
 }
 
 entity ElementoLista {
-	nombre String required maxlength(200),
-    codigo String required maxlength(5),
+	nombre String required maxlength(200)
+    codigo String required maxlength(5)
     /*
     * posibles propiedades que pueda tener el elemento
     * de la lista, ej. {key: value}
     */
-    propiedades Blob 
+    propiedades Blob
 }
 
 
@@ -71,28 +71,30 @@ relationship OneToOne {
     Usuario{user(login)} to User
 }
 relationship ManyToOne {
-    TipoLista{padre(nombre)} to TipoLista,
-	ElementoLista{tipoLista(nombre) required} to TipoLista,
+    TipoLista{padre(nombre)} to TipoLista
+	ElementoLista{tipoLista(nombre) required} to TipoLista
     ElementoLista{padre(nombre)} to ElementoLista
-    ProductoDetalle{Talla(valor) required} to ElementoLista
+    ProductoDetalle{Talla(nombre) required} to ElementoLista
     ProductoDetalle{Color(nombre) required} to ElementoLista
-    Stock{producto} to Producto 
+    Stock{producto} to Producto
     Stock{sucursal} to Sucursal
    // OrderItem{product} to Producto
 }
 // User relationships
 relationship ManyToOne {
-    Usuario{cuidad(nombre) required} to ElementoLista,
-    
+    Usuario{cuidad(nombre) required} to ElementoLista
+
 }
+
 relationship OneToMany {
-  
+
    ProductoCategoria{producto} to Producto{productCategoria}
-   Producto{productoDetalle(nombre)} to ProductoDetalle{producto(nombre)}
+   Producto{productoDetalle} to ProductoDetalle{producto(nombre)}
   // ProductoDetalle{stock} to Stock{productoDetalle(codigo)}
    //Sucursal{productoDetalle} to ProductoDetalle{sucursal(nombre)}
 }
+
 dto * with mapstruct
 paginate * with pagination
 service * with serviceClass
-filter * 
+filter *

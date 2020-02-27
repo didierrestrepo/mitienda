@@ -13,7 +13,7 @@
             "otherEntityRelationshipName": "productoDetalle",
             "relationshipValidateRules": "required",
             "relationshipName": "talla",
-            "otherEntityField": "valor"
+            "otherEntityField": "nombre"
         },
         {
             "relationshipType": "many-to-one",

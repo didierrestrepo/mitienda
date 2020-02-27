@@ -1,7 +1,7 @@
 export interface IProductoDetalle {
   id?: number;
   codigo?: string;
-  tallaValor?: string;
+  tallaNombre?: string;
   tallaId?: number;
   colorNombre?: string;
   colorId?: number;
@@ -13,7 +13,7 @@ export class ProductoDetalle implements IProductoDetalle {
   constructor(
     public id?: number,
     public codigo?: string,
-    public tallaValor?: string,
+    public tallaNombre?: string,
     public tallaId?: number,
     public colorNombre?: string,
     public colorId?: number,

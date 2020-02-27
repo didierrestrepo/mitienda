@@ -135,8 +135,8 @@ project.ext.diffChangelogFile = "src/main/resources/config/liquibase/changelog/"
 liquibase {
     activities {
         main {
-            driver ""
-            url ""
+            driver "org.postgresql.Driver"
+            url "jdbc:postgresql://localhost:5432/mitienda"
             username "mitienda"
             password ""
             changeLogFile "src/main/resources/config/liquibase/master.xml"
@@ -145,12 +145,12 @@ liquibase {
             classpath "src/main/resources/"
         }
         diffLog {
-            driver ""
-            url ""
+            driver "org.postgresql.Driver"
+            url "jdbc:postgresql://localhost:5432/mitienda"
             username "mitienda"
             password ""
             changeLogFile project.ext.diffChangelogFile
-            referenceUrl "hibernate:spring:com.themakers.mitienda.domain?dialect=&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
+            referenceUrl "hibernate:spring:com.themakers.mitienda.domain?dialect=io.github.jhipster.domain.util.FixedPostgreSQL95Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
             defaultSchemaName ""
             logLevel "debug"
             classpath "$buildDir/classes/java/main"
@@ -273,7 +273,6 @@ dependencies {
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.hamcrest:hamcrest-library"
     testImplementation "com.h2database:h2"
-    liquibaseRuntime "com.h2database:h2"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 

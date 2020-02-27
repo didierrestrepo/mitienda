@@ -12,7 +12,7 @@
                 <dt><span jhiTranslate="mitiendaApp.productoDetalle.talla">Talla</span></dt>
                 <dd>
                     <div *ngIf="productoDetalle.tallaId">
-                        <a [routerLink]="['/elemento-lista', productoDetalle.tallaId, 'view']">{{productoDetalle.tallaValor}}</a>
+                        <a [routerLink]="['/elemento-lista', productoDetalle.tallaId, 'view']">{{productoDetalle.tallaNombre}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="mitiendaApp.productoDetalle.color">Color</span></dt>

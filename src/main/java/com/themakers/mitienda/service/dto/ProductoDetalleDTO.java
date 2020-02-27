@@ -15,7 +15,7 @@ public class ProductoDetalleDTO implements Serializable {
 
     private Long tallaId;
 
-    private String tallaValor;
+    private String tallaNombre;
 
     private Long colorId;
 
@@ -49,12 +49,12 @@ public class ProductoDetalleDTO implements Serializable {
         this.tallaId = elementoListaId;
     }
 
-    public String getTallaValor() {
-        return tallaValor;
+    public String getTallaNombre() {
+        return tallaNombre;
     }
 
-    public void setTallaValor(String elementoListaValor) {
-        this.tallaValor = elementoListaValor;
+    public void setTallaNombre(String elementoListaNombre) {
+        this.tallaNombre = elementoListaNombre;
     }
 
     public Long getColorId() {
@@ -116,7 +116,7 @@ public class ProductoDetalleDTO implements Serializable {
             "id=" + getId() +
             ", codigo='" + getCodigo() + "'" +
             ", tallaId=" + getTallaId() +
-            ", tallaValor='" + getTallaValor() + "'" +
+            ", tallaNombre='" + getTallaNombre() + "'" +
             ", colorId=" + getColorId() +
             ", colorNombre='" + getColorNombre() + "'" +
             ", productoId=" + getProductoId() +

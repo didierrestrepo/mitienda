@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface ProductoDetalleMapper extends EntityMapper<ProductoDetalleDTO, ProductoDetalle> {
 
     @Mapping(source = "talla.id", target = "tallaId")
-    @Mapping(source = "talla.valor", target = "tallaValor")
+    @Mapping(source = "talla.nombre", target = "tallaNombre")
     @Mapping(source = "color.id", target = "colorId")
     @Mapping(source = "color.nombre", target = "colorNombre")
     @Mapping(source = "producto.id", target = "productoId")

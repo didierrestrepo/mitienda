@@ -20,7 +20,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
             <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="codigo"><span jhiTranslate="mitiendaApp.productoDetalle.codigo">Codigo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th scope="col"  jhiSortBy="tallaValor"><span jhiTranslate="mitiendaApp.productoDetalle.talla">Talla</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tallaNombre"><span jhiTranslate="mitiendaApp.productoDetalle.talla">Talla</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="colorNombre"><span jhiTranslate="mitiendaApp.productoDetalle.color">Color</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"  jhiSortBy="productoNombre"><span jhiTranslate="mitiendaApp.productoDetalle.producto">Producto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th scope="col"></th>
@@ -32,7 +32,7 @@
                 <td>{{productoDetalle.codigo}}</td>
                 <td>
                     <div *ngIf="productoDetalle.tallaId">
-                        <a [routerLink]="['/elemento-lista', productoDetalle.tallaId , 'view' ]" >{{productoDetalle.tallaValor}}</a>
+                        <a [routerLink]="['/elemento-lista', productoDetalle.tallaId , 'view' ]" >{{productoDetalle.tallaNombre}}</a>
                     </div>
                 </td>
                 <td>

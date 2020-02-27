@@ -19,7 +19,7 @@
                     <label class="form-control-label" jhiTranslate="mitiendaApp.productoDetalle.talla" for="field_talla">Talla</label>
                     <select class="form-control" id="field_talla" name="talla" formControlName="tallaId">
                         <option *ngIf="!editForm.get('tallaId')!.value" [ngValue]="null" selected></option>
-                        <option [ngValue]="elementoListaOption.id" *ngFor="let elementoListaOption of elementolistas; trackBy: trackById">{{elementoListaOption.valor}}</option>
+                        <option [ngValue]="elementoListaOption.id" *ngFor="let elementoListaOption of elementolistas; trackBy: trackById">{{elementoListaOption.nombre}}</option>
                     </select>
                 </div>
                 <div *ngIf="editForm.get('tallaId')!.invalid && (editForm.get('tallaId')!.dirty || editForm.get('tallaId')!.touched)">
